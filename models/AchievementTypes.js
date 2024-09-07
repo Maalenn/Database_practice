@@ -1,7 +1,7 @@
 const sequelize = require("../config/database");
 const { DataTypes } = require("sequelize");
 
-const Specializations = sequelize.define("Specializations", {
+const AchievementTypes = sequelize.define("AchievementTypes", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -13,8 +13,8 @@ const Specializations = sequelize.define("Specializations", {
     allowNull: false,
     validate: {
       isAlpha: {
-        msg: "Specializations name must be only character",
-      }
+        msg: "Achievement Types name must be only character",
+      },
     },
   },
   description: {
@@ -26,15 +26,6 @@ const Specializations = sequelize.define("Specializations", {
       },
     },
   },
-  fieldOfStudyId: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: "FieldOfStudies",
-      key: "id",
-    },
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE",
-  },
 });
 
-module.exports = Specializations;
+module.exports = AchievementTypes;

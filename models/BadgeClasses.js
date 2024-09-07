@@ -1,7 +1,7 @@
 const sequelize = require("../config/database");
 const { DataTypes } = require("sequelize");
 
-const AcademicLevel = sequelize.define("AcademicLevel", {
+const BadgeClasses = sequelize.define("BadgeClasses", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -11,12 +11,8 @@ const AcademicLevel = sequelize.define("AcademicLevel", {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
-    validate: {
-      isAlpha: {
-        msg: "Academic_level name must be only character",
-      }
-    },
   },
+  // Additional fields as needed
 });
 
-module.exports = AcademicLevel;
+module.exports = BadgeClasses;

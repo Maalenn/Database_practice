@@ -76,6 +76,8 @@ const User = sequelize.define(
         model: "Genders",
         key: "id",
       },
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     },
     nationality: {
       type: DataTypes.STRING,
@@ -84,7 +86,7 @@ const User = sequelize.define(
       type: DataTypes.DATE,
     },
     bio: {
-      dataType: DataTypes.STRING,
+      type: DataTypes.STRING,
       validate: {
         len: {
           arg: [20, 800],
@@ -98,6 +100,8 @@ const User = sequelize.define(
         model: "Roles",
         key: "id",
       },
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     },
   },
   {

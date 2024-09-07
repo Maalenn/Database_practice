@@ -1,7 +1,7 @@
 const sequelize = require("../config/database");
 const { DataTypes } = require("sequelize");
 
-const AcademicBackgrounds = sequelize.isDefined("AcademicBackgrounds", {
+const AcademicBackgrounds = sequelize.define("AcademicBackgrounds", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -14,20 +14,26 @@ const AcademicBackgrounds = sequelize.isDefined("AcademicBackgrounds", {
       model: "Institutions",
       key: "id",
     },
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
   },
   fieldOfStudyId: {
     type: DataTypes.INTEGER,
     references: {
-      model: "FieldOfStudys",
+      model: "FieldOfStudies",
       key: "id",
     },
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
   },
   academicLevelId: {
     type: DataTypes.INTEGER,
     references: {
-      model: "AcademicLevel",
+      model: "AcademicLevels",
       key: "id",
     },
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
   },
   academicYear: {
     type: DataTypes.DATE,
@@ -44,6 +50,8 @@ const AcademicBackgrounds = sequelize.isDefined("AcademicBackgrounds", {
       model: "Users",
       key: "id",
     },
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
   },
 });
 

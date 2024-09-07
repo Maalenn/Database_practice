@@ -9,11 +9,13 @@ const Earners = sequelize.define("Earner", {
     allowNull: false,
   },
   userId: {
+    type: DataTypes.INTEGER,
     references: {
-      type: DataTypes.INTEGER,
       model: "Users",
       key: "id",
     },
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
   },
   achievementId: {
     type: DataTypes.INTEGER,
@@ -21,6 +23,8 @@ const Earners = sequelize.define("Earner", {
       model: "Achievements",
       key: "id",
     },
+    onDelete: "CASCADE",
+    onUpdate: "CASCADE",
   },
 });
 

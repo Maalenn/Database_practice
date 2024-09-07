@@ -1,7 +1,7 @@
 const sequelize = require("../config/database");
 const { DataTypes } = require("sequelize");
 
-const Specializations = sequelize.define("Specializations", {
+const RubricCriterionLevels = sequelize.define("RubricCriterionLevels", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -13,8 +13,8 @@ const Specializations = sequelize.define("Specializations", {
     allowNull: false,
     validate: {
       isAlpha: {
-        msg: "Specializations name must be only character",
-      }
+        msg: "Rubric Criterion Levels name must be only character",
+      },
     },
   },
   description: {
@@ -26,15 +26,14 @@ const Specializations = sequelize.define("Specializations", {
       },
     },
   },
-  fieldOfStudyId: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: "FieldOfStudies",
-      key: "id",
-    },
-    onDelete: "CASCADE",
-    onUpdate: "CASCADE",
+  level: {
+    type: DataTypes.STRING,
   },
+  points: {
+    type: DataTypes.INTEGER
+  },
+  
+
 });
 
-module.exports = Specializations;
+module.exports = RubricCriterionLevels;

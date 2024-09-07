@@ -18,7 +18,7 @@ const FieldOfStudies = sequelize.define("FieldOfStudies", {
     },
   },
   description: {
-    dataType: DataTypes.STRING,
+    type: DataTypes.STRING,
     validate: {
       len: {
         arg: [20, 800],

@@ -1,38 +1,38 @@
 const sequelize = require("../config/database");
 const { DataTypes } = require("sequelize");
 
-const Courses = sequelize.define("Courses", {
+const Addresses = sequelize.define("Addresses", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
   },
-  description: {
-    type: DataTypes.STRING,
-    validate: {
-      len: {
-        arg: [0, 800],
-        msg: "Your description must be between 0 to 800 characters",
-      },
-    },
-  },
-  courseCode: {
+  addressCountryCode: {
     type: DataTypes.STRING,
   },
-  specializationId: {
+  streetAddress: {
+    type: DataTypes.STRING,
+  },
+  postalCode: {
+    type: DataTypes.STRING,
+  },
+  city: {
+    type: DataTypes.STRING,
+  },
+  userId: {
     type: DataTypes.INTEGER,
     references: {
-      model: "Specializations",
+      model: "Users",
       key: "id",
     },
     onDelete: "CASCADE",
     onUpdate: "CASCADE",
   },
-  fieldOfStudyId: {
+  institutionId: {
     type: DataTypes.INTEGER,
     references: {
-      model: "FieldOfStudies",
+      model: "Institutions",
       key: "id",
     },
     onDelete: "CASCADE",
@@ -40,4 +40,4 @@ const Courses = sequelize.define("Courses", {
   },
 });
 
-module.exports = Courses;
+module.exports = Addresses;
